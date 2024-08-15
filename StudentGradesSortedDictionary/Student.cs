@@ -9,7 +9,7 @@ namespace StudentGradesSortedDictionary
     internal class Student
     {
         private string student_name;
-        private List<int> grades;
+        private List<int> grades = new List<int>();
         public Student(string name) 
         {
             student_name = name;
