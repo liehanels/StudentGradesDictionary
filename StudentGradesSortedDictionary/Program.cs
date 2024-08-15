@@ -19,7 +19,7 @@ namespace StudentGradesSortedDictionary
                 Console.WriteLine("4. View grades");
                 Console.WriteLine("5. Remove a student");
                 Console.WriteLine("6. Exit");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() + "";
                 switch (input)
                 {
                     //add student
@@ -57,10 +57,13 @@ namespace StudentGradesSortedDictionary
                         foreach(var student in learners)
                         {
                             Console.WriteLine(student.Value.getName());
-                            foreach(var item in student.Value.getGrades())
+                            try
                             {
-                                Console.WriteLine(item);
-                            }
+                                foreach (var item in student.Value.getGrades())
+                                {
+                                    Console.WriteLine(item);
+                                }
+                            } catch (Exception ex) { Console.WriteLine("No grades for learner"); }
                         }
                         addWait();
                         break;
@@ -73,6 +76,8 @@ namespace StudentGradesSortedDictionary
                         Console.WriteLine("Have a nice day!");
                         addWait();
                         exit = true;
+                        break;
+                    default:
                         break;
                 }
             }
