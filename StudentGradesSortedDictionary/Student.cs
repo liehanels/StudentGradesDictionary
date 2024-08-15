@@ -22,6 +22,23 @@ namespace StudentGradesSortedDictionary
         {
             grades.Add(grade);
         }
+        private int findGrade(int grade)
+        {
+            int c = 0;
+            foreach (var item in grades)
+            {
+                if (item == grade) 
+                {
+                    return c;
+                }
+                c++;
+            }
+            return 0;
+        }
+        public void editGrade(int oldGrade, int newGrade)
+        {
+            grades[findGrade(oldGrade)] = newGrade;
+        }
         public List<int> getGrades()
         {
             return grades;

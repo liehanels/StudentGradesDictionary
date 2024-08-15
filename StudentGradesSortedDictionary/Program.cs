@@ -51,6 +51,18 @@ namespace StudentGradesSortedDictionary
                         break;
                     //edit grade
                     case "3":
+                        //gets student name
+                        Console.WriteLine("Student Name :");
+                        search = Console.ReadLine() + "";
+                        //find the key of student
+                        key = learners.Where(student => student.Value.getName() == search).ElementAt(0).Key;
+                        //gets old subject mark
+                        Console.WriteLine("Which Mark :");
+                        int oldMark = int.Parse(Console.ReadLine() + "");
+                        //gets new subject mark
+                        Console.WriteLine("New Mark :");
+                        int newMark = int.Parse(Console.ReadLine() + "");
+                        learners.ElementAt(key).Value.editGrade(oldMark, newMark);
                         break;
                     //view grades
                     case "4":
@@ -69,7 +81,12 @@ namespace StudentGradesSortedDictionary
                         break;
                     //remove student
                     case "5":
-
+                        //gets student name
+                        Console.WriteLine("Student Name :");
+                        search = Console.ReadLine() + "";
+                        //find the key of student
+                        key = learners.Where(student => student.Value.getName() == search).ElementAt(0).Key;
+                        learners.Remove(key);
                         break;
                     //exit
                     case "6":
